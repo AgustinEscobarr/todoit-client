@@ -20,11 +20,11 @@
             </mat-form-field>
             <mat-form-field class="matform" appearance="fill">
                 <mat-label>Fecha</mat-label>
-                <input class="input" name="date" matInput formControlName="date" required>
+                <input class="input" name="date" type="date" matInput formControlName="date" required>
             </mat-form-field>
             <mat-form-field class="matform" appearance="fill">
                 <mat-label>Horario</mat-label>
-                <input class="input" name="time" matInput formControlName="time" required>
+                <input class="input" name="time" type="time" matInput formControlName="time" required>
             </mat-form-field>
             <fieldset id="fieldSubmit">
                 <button type="submit" mat-button [disabled]="!travelForm.valid" color='primary'>Solicitar</button>

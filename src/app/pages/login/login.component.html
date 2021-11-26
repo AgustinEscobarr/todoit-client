@@ -4,7 +4,7 @@
         <form class="form"  [formGroup]="loginForm" #formDirective=ngForm   (ngSubmit)="onSubmit(formDirective)">
             <mat-form-field class="matform" appearance="fill">
               <mat-label>Email:</mat-label>
-              <input name="email" matInput formControlName="email" required>
+              <input name="email" type="email" matInput formControlName="email" required>
             </mat-form-field>
             <mat-form-field class="matform" appearance="fill">
               <mat-label>Contraseña:</mat-label>
