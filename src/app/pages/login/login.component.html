@@ -1,0 +1,19 @@
+<app-header></app-header>
+<main>
+    <div id="form-container">
+        <form class="form"  [formGroup]="loginForm" #formDirective=ngForm   (ngSubmit)="onSubmit(formDirective)">
+            <mat-form-field class="matform" appearance="fill">
+              <mat-label>Email:</mat-label>
+              <input name="email" matInput formControlName="email" required>
+            </mat-form-field>
+            <mat-form-field class="matform" appearance="fill">
+              <mat-label>Contraseña:</mat-label>
+              <input class="input" name="password" type="password" matInput formControlName="password" required>
+            </mat-form-field>
+            <fieldset id="fieldSubmit">
+                <button type="submit" mat-button [disabled]="!loginForm.valid" color='primary'>Entrar</button>
+            </fieldset>
+        </form>
+    </div>
+</main>
+<app-footer></app-footer>
