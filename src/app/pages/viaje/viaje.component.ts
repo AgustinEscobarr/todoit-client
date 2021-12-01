@@ -11,6 +11,7 @@ import { TravelService } from '../services/travel.service';
 export class ViajeComponent  {
   travel= new TravelData('');
   travelForm: FormGroup;
+  client= JSON.parse(localStorage.getItem('userLoged')||'')
 
   constructor(  private travelService:  TravelService) { 
     this.travelForm  = new FormGroup({
@@ -18,9 +19,9 @@ export class ViajeComponent  {
       marca : new FormControl(''),
       modelo  : new FormControl(''),
       falla  : new FormControl(''),
-      address  : new FormControl(''),
-      date  : new FormControl(''),
-      time  : new FormControl(''),
+      
+      
+      
       
     })
 }
@@ -29,9 +30,16 @@ onSubmit(formDirective:FormGroupDirective){
   console.log(this.travelForm);
   
   this.travel  = this.travelForm.value;
+  this.travel.idClient=this.client.id 
   
   console.log(this.travel);
   formDirective.resetForm();
   this.travelForm.reset();
+
+  
+  this.travelService.retirement (this.travel).subscribe(  (resp:any) => {
+  console.log(resp);
+  
+})
 }
 }

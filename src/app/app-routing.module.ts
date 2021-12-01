@@ -6,25 +6,30 @@ import { LoginComponent } from './pages/login/login.component';
 import { EstadoComponent } from './pages/estado/estado.component';
 import { ViajeComponent } from './pages/viaje/viaje.component';
 import { HistorialComponent } from './pages/historial/historial.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes:Routes =[
   {
-    path:'home', component:HomeComponent
+    path:'home', component:HomeComponent,
+    canActivate:[AuthGuard]
   },
   {
     path:'login', component:LoginComponent
   },
   {
-    path:'state',component:EstadoComponent
+    path:'state',component:EstadoComponent,
+    canActivate:[AuthGuard]
   },
   {
-    path:'travel',component:ViajeComponent
+    path:'travel',component:ViajeComponent,
+    canActivate:[AuthGuard]
   },
   {
-    path:'record',component:HistorialComponent
+    path:'record',component:HistorialComponent,
+    canActivate:[AuthGuard]
   },
   {
-    path:'**', redirectTo:'home'
+    path:'**', redirectTo:'login'
   }
 
 ]

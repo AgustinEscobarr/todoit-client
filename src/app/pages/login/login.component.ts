@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,  FormGroupDirective } from '@angular/forms';
-import { UserLogin} from 'src/app/model/user-login';
+import { UserLogin, UserLoged} from 'src/app/model/user-login';
 
 import { LoginService } from '../services/login.service';
 
@@ -12,13 +12,13 @@ import { LoginService } from '../services/login.service';
 export class LoginComponent{
 
   user= new UserLogin();
-    
+  
 
   loginForm: FormGroup;
 
-  constructor(  private loginService:  LoginService) { 
+  constructor( private loginService:  LoginService) { 
     this.loginForm  = new FormGroup({
-      
+    
       email : new FormControl(''),
       password  : new FormControl(''),
       
@@ -48,7 +48,12 @@ export class LoginComponent{
       console.log(this.user.password);
       this.loginService.login (this.user).subscribe(  (resp:any) => {
       console.log(resp.id);
-      localStorage.setItem('userLoged', JSON.stringify(resp));
+      let userLoged= new UserLoged('');
+      userLoged.id=resp.id;
+      userLoged.fullName=resp.fullName;
+      userLoged.email=resp.email;
+      console.log(userLoged)
+      localStorage.setItem('userLoged', JSON.stringify(userLoged));
       let loged = JSON.parse(localStorage.getItem('userLoged')||"");
       console.log(loged);
       

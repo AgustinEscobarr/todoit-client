@@ -9,10 +9,10 @@ import { TravelData } from 'src/app/model/travel-data';
 export class TravelService {
   constructor(private http: HttpClient) { }
 
-  register(client:TravelData):  Observable<TravelData>  {
+  retirement(client:TravelData):  Observable<TravelData>  {
 
 /*     let headers = new HttpHeaders({'Content-Type':'application/json', 'Access-Control-Allow-Origin': 'http://localhost:4200/'});
  */
-    return  this.http.post<TravelData>('http://localHost:4200/api/Alta', client);
+    return  this.http.post<TravelData>(`/api/Retirement?clientId=${client.idClient}&mark=${client.marca}&model=${client.modelo}&failure=${client.falla}`, client);
 }
 }

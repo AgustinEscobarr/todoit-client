@@ -7,3 +7,10 @@ export class UserLogin{
         this.password=password;
     }
 }
+export class UserLoged{
+    constructor(public id?:string,public fullName?:string, public email?:string){
+        this.id=id;
+        this.fullName=fullName;
+        this.email=email;
+    }
+}
