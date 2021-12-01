@@ -9,9 +9,10 @@ import { EstadoComponent } from './estado/estado.component';
 import { HistorialComponent } from './historial/historial.component';
 
 
+
 @NgModule({
   declarations: [
-    HomeComponent,LoginComponent, ViajeComponent, EstadoComponent, HistorialComponent
+    HomeComponent,LoginComponent, ViajeComponent, EstadoComponent, HistorialComponent,
   ],
   imports: [
     CommonModule,

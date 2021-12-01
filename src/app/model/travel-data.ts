@@ -1,10 +1,8 @@
 export class TravelData{
-    constructor(private marca:string='',private modelo:string='',private falla:string='',private address:string='',private date:string='',private time:string=''){
+    constructor(public marca:string='',public modelo:string='',public falla:string=''){
         this.marca=marca;
         this.modelo=modelo;
         this.falla=falla;
-        this.address=address;
-        this.date=date;
-        this.time=time;
+        
     }
 }

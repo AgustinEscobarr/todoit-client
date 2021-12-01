@@ -1,4 +1,4 @@
-<app-header></app-header>
+
 <main>
     <div id="form-container">
         <form class="form"  [formGroup]="travelForm" #formDirective=ngForm (ngSubmit)="onSubmit(formDirective)">
@@ -16,15 +16,7 @@
             </mat-form-field>
             <mat-form-field class="matform" appearance="fill">
                 <mat-label>Dirección</mat-label>
-                <input class="input" name="address" matInput formControlName="address" required>
-            </mat-form-field>
-            <mat-form-field class="matform" appearance="fill">
-                <mat-label>Fecha</mat-label>
-                <input class="input" name="date" type="date" matInput formControlName="date" required>
-            </mat-form-field>
-            <mat-form-field class="matform" appearance="fill">
-                <mat-label>Horario</mat-label>
-                <input class="input" name="time" type="time" matInput formControlName="time" required>
+                <input class="input" name="address" matInput readonly required>
             </mat-form-field>
             <fieldset id="fieldSubmit">
                 <button type="submit" mat-button [disabled]="!travelForm.valid" color='primary'>Solicitar</button>
