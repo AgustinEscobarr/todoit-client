@@ -3,6 +3,7 @@ import { FormGroup, FormControl,  FormGroupDirective } from '@angular/forms';
 import { UserLogin, UserLoged} from 'src/app/model/user-login';
 
 import { LoginService } from '../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent{
 
   loginForm: FormGroup;
 
-  constructor( private loginService:  LoginService) { 
+  constructor(private route:Router, private loginService:  LoginService) { 
     this.loginForm  = new FormGroup({
     
       email : new FormControl(''),
@@ -33,7 +34,7 @@ export class LoginComponent{
     console.log(this.loginForm);
     
     this.user  = this.loginForm.value;
-    
+    window.location.reload();
     console.log(this.user);
     formDirective.resetForm();
     this.loginForm.reset();
@@ -47,6 +48,7 @@ export class LoginComponent{
       console.log(this.user.email);
       console.log(this.user.password);
       this.loginService.login (this.user).subscribe(  (resp:any) => {
+      
       console.log(resp.id);
       let userLoged= new UserLoged('');
       userLoged.id=resp.id;
@@ -57,8 +59,13 @@ export class LoginComponent{
       let loged = JSON.parse(localStorage.getItem('userLoged')||"");
       console.log(loged);
       
+      this.redirect();
+      
   });
   
+  }
+  redirect(){
+    this.route.navigate(['home']);
   }
 }
 

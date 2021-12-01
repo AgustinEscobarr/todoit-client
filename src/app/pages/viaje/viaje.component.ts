@@ -31,13 +31,13 @@ onSubmit(formDirective:FormGroupDirective){
   
   this.travel  = this.travelForm.value;
   this.travel.idClient=this.client.id 
-  
+  this.travel.falla.replace(' ','%20')
   console.log(this.travel);
   formDirective.resetForm();
   this.travelForm.reset();
 
   
-  this.travelService.retirement (this.travel).subscribe(  (resp:any) => {
+  this.travelService.retirement(this.travel).subscribe(  (resp:any) => {
   console.log(resp);
   
 })
