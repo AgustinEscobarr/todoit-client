@@ -10,6 +10,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
 
 
 
@@ -32,7 +33,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatTableModule,
     MatSidenavModule,
     MatListModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSortModule
   
   ]
 })

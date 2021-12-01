@@ -4,20 +4,22 @@ import { UserLogin, UserLoged} from 'src/app/model/user-login';
 
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
+import { StateService } from '../services/state.service';
+import { StateData } from '../../model/state-data';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.sass']
 })
-export class LoginComponent{
+export class LoginComponent implements OnInit{
 
   user= new UserLogin();
   
 
   loginForm: FormGroup;
 
-  constructor(private route:Router, private loginService:  LoginService) { 
+  constructor(private route:Router, private loginService:  LoginService, private stateService:StateService) { 
     this.loginForm  = new FormGroup({
     
       email : new FormControl(''),
@@ -34,7 +36,7 @@ export class LoginComponent{
     console.log(this.loginForm);
     
     this.user  = this.loginForm.value;
-    window.location.reload();
+    
     console.log(this.user);
     formDirective.resetForm();
     this.loginForm.reset();
@@ -51,6 +53,7 @@ export class LoginComponent{
       
       console.log(resp.id);
       let userLoged= new UserLoged('');
+      
       userLoged.id=resp.id;
       userLoged.fullName=resp.fullName;
       userLoged.email=resp.email;
@@ -59,6 +62,7 @@ export class LoginComponent{
       let loged = JSON.parse(localStorage.getItem('userLoged')||"");
       console.log(loged);
       
+      
       this.redirect();
       
   });
@@ -66,6 +70,9 @@ export class LoginComponent{
   }
   redirect(){
     this.route.navigate(['home']);
+  }
+  ngOnInit(){
+    
   }
 }
 
