@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,  FormGroupDirective } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogViajeComponent } from 'src/app/components/dialog-viaje/dialog-viaje.component';
 import { TravelData } from '../../model/travel-data';
 import { TravelService } from '../services/travel.service';
 
@@ -13,7 +15,7 @@ export class ViajeComponent  {
   travelForm: FormGroup;
   client= JSON.parse(localStorage.getItem('userLoged')||'')
 
-  constructor(  private travelService:  TravelService) { 
+  constructor(  private travelService:  TravelService, public dialog: MatDialog) { 
     this.travelForm  = new FormGroup({
       
       marca : new FormControl(''),
@@ -39,7 +41,12 @@ onSubmit(formDirective:FormGroupDirective){
   
   this.travelService.retirement(this.travel).subscribe(  (resp:any) => {
   console.log(resp);
+  this.openDialog();
+  
   
 })
+}
+openDialog() {
+  this.dialog.open(DialogViajeComponent);
 }
 }
