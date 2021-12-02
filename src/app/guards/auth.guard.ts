@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if (!localStorage.getItem('userLoged')) {
-      window.alert('Acceso denegado papu, logueate');
+      
       return this.router.navigate(['login']);
       
     }

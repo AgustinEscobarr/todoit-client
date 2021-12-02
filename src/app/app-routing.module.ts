@@ -12,6 +12,11 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes:Routes =[
   {
+    path:'', component:LoginComponent,
+    
+
+  },
+  {
     path:'home', component:HomeComponent,
     canActivate:[AuthGuard]
   },
@@ -33,12 +38,8 @@ const routes:Routes =[
   },
   {
     path:'**', component:NotFoundComponent
-  },
-  {
-    path:'', component:LoginComponent,
-    canActivate:[NologinGuard]
-
   }
+  
 
 ]
 

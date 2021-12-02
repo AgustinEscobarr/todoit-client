@@ -1,5 +1,8 @@
 
 <main *ngIf="valido">
+  <div class="background-image">
+    <img src="../assets/fondoState.jpg" alt="">
+  </div>
   <div class="titulo-container">
     <h1 class="titulo">Estado del Viaje</h1>
   </div>
@@ -55,8 +58,6 @@
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
   </div>
 </div>
-<div class="background-image">
-  <img src="../assets/fondoState.jpg" alt="">
-</div>
+
   <!--<button style="padding: 2rem;" (click)="obtener()">click me pls</button>-->
 </main>
