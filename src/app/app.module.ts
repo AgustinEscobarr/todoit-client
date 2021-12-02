@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MainNavComponent } from './components/main-nav/main-nav.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 import { MaterialModule } from './material.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -26,7 +27,7 @@ import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
-    AppComponent,MainNavComponent
+    AppComponent,MainNavComponent,FooterComponent
    
  
   ],

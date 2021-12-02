@@ -7,6 +7,10 @@ import { Router } from '@angular/router';
 import { StateService } from '../services/state.service';
 import { StateData } from '../../model/state-data';
 
+import {MatDialog} from '@angular/material/dialog';
+import { DialogLoginComponent } from 'src/app/components/dialog-login/dialog-login.component';
+import { catchError } from 'rxjs';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,7 +23,7 @@ export class LoginComponent implements OnInit{
 
   loginForm: FormGroup;
 
-  constructor(private route:Router, private loginService:  LoginService, private stateService:StateService) { 
+  constructor(private route:Router, private loginService:  LoginService, private stateService:StateService, public dialog: MatDialog) { 
     this.loginForm  = new FormGroup({
     
       email : new FormControl(''),
@@ -31,6 +35,7 @@ export class LoginComponent implements OnInit{
     
     
   }
+  
   onSubmit(formDirective:FormGroupDirective){
     
     console.log(this.loginForm);
@@ -49,7 +54,9 @@ export class LoginComponent implements OnInit{
        
       console.log(this.user.email);
       console.log(this.user.password);
+      
       this.loginService.login (this.user).subscribe(  (resp:any) => {
+  
       
       console.log(resp.id);
       let userLoged= new UserLoged('');
@@ -65,12 +72,21 @@ export class LoginComponent implements OnInit{
       
       this.redirect();
       
-  });
+  },
+  error=>{console.log('oops', error); this.openDialog()}
+  );
   
   }
   redirect(){
     this.route.navigate(['home']);
   }
+  
+  openDialog() {
+    this.dialog.open(DialogLoginComponent);
+  }
+
+
+
   ngOnInit(){
     
   }

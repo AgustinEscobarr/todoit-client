@@ -13,7 +13,7 @@
       
       <a mat-list-item [routerLink]="['/travel']" routerLinkActive="router-link-active">Solicitar Viaje</a>
       <a mat-list-item [routerLink]="['/state']" routerLinkActive="router-link-active">Estado del Viaje</a>
-      <a mat-list-item [routerLink]="['/travel']" routerLinkActive="router-link-active">Historial</a>
+      <a mat-list-item [routerLink]="['/record']" routerLinkActive="router-link-active">Historial</a>
     </mat-nav-list>
     <mat-nav-list>
       
@@ -37,7 +37,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-     
+     <div class="nav-desk">
       <button mat-button class="buttonBar" aria-label="icon-button " [routerLink]="['/home']" routerLinkActive="router-link-active">
         Inicio
       </button>
@@ -47,9 +47,14 @@
       <button mat-button class="buttonBar" aria-label="icon-button " [routerLink]="['/state']" routerLinkActive="router-link-active">
         Estado del Viaje
       </button>
-      <button mat-button class="buttonBar" aria-label="icon-button " [routerLink]="['/']" routerLinkActive="router-link-active">
+      <button mat-button class="buttonBar" aria-label="icon-button " [routerLink]="['/record']" routerLinkActive="router-link-active">
         Historial
       </button>
+      <button mat-button class="buttonBar" aria-label="icon-button " (click)="signOut()">
+        Cerrar Sesion
+      </button>
+     </div>
+      
       
     </nav>
     

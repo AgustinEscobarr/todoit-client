@@ -1,20 +1,25 @@
 
 <main>
-  <h1>Iniciar Sesion</h1>
+  <div class="titulo-container">
+    <h1 class="titulo">Iniciar Sesion</h1>
+  </div>
+  
     <div id="form-container">
         <form class="form"  [formGroup]="loginForm" #formDirective=ngForm   (ngSubmit)="onSubmit(formDirective)">
             <mat-form-field class="matform" appearance="fill">
-              <mat-label>Email:</mat-label>
+              <mat-label class="namefield">Email:</mat-label>
               <input name="email" type="email" matInput formControlName="email" required>
             </mat-form-field>
             <mat-form-field class="matform" appearance="fill">
-              <mat-label>Contraseña:</mat-label>
+              <mat-label class="namefield">Contraseña:</mat-label>
               <input class="input" name="password" type="password" matInput formControlName="password" required>
             </mat-form-field>
-            <fieldset id="fieldSubmit">
-                <button type="submit" mat-button [disabled]="!loginForm.valid" color='primary'>Entrar</button>
-            </fieldset>
+            
+                <button type="submit" mat-raised-button [disabled]="!loginForm.valid" >Entrar</button>
+            
         </form>
     </div>
+    <div class="background-image">
+      <img src="../assets/fondoLog.jpg" alt="">
+    </div>
 </main>
-<app-footer></app-footer>

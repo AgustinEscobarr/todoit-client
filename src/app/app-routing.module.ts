@@ -7,6 +7,7 @@ import { EstadoComponent } from './pages/estado/estado.component';
 import { ViajeComponent } from './pages/viaje/viaje.component';
 import { HistorialComponent } from './pages/historial/historial.component';
 import { AuthGuard } from './guards/auth.guard';
+import { NologinGuard } from './guards/nologin.guard';
 
 const routes:Routes =[
   {
@@ -14,7 +15,8 @@ const routes:Routes =[
     canActivate:[AuthGuard]
   },
   {
-    path:'login', component:LoginComponent
+    path:'login', component:LoginComponent,
+    canActivate:[NologinGuard]
   },
   {
     path:'state',component:EstadoComponent,

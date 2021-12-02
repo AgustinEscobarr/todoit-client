@@ -3,4 +3,5 @@ export interface StateData {
     marca: string;
     modelo: string;
     equipo: string;
+    envio:string;
   }
