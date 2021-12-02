@@ -18,6 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+
 
 
 
@@ -27,7 +29,7 @@ import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
-    AppComponent,MainNavComponent,FooterComponent
+    AppComponent,MainNavComponent,FooterComponent,NotFoundComponent
    
  
   ],

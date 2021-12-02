@@ -8,6 +8,7 @@ import { ViajeComponent } from './pages/viaje/viaje.component';
 import { HistorialComponent } from './pages/historial/historial.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NologinGuard } from './guards/nologin.guard';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes:Routes =[
   {
@@ -31,7 +32,12 @@ const routes:Routes =[
     canActivate:[AuthGuard]
   },
   {
-    path:'**', redirectTo:'login'
+    path:'**', component:NotFoundComponent
+  },
+  {
+    path:'', component:LoginComponent,
+    canActivate:[NologinGuard]
+
   }
 
 ]

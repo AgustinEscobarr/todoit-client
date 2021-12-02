@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
+
 
 import { MaterialModule } from '../material.module';
 
@@ -18,7 +18,7 @@ import { DialogViajeComponent } from './dialog-viaje/dialog-viaje.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, DialogLoginComponent, DialogViajeComponent],
+  declarations: [DialogLoginComponent, DialogViajeComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -30,6 +30,6 @@ import { DialogViajeComponent } from './dialog-viaje/dialog-viaje.component';
     MatListModule,
     
   ],
-  exports:[HeaderComponent]
+  exports:[]
 })
 export class ComponentsModule { }
